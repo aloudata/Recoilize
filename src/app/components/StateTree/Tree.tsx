@@ -35,25 +35,19 @@ const Tree: React.FC = () => {
     }
   }, [setIncludeText, setExcludeText]);
 
-  const DEBOUNCE_TIME = 300;
-
   const onChangeIncludeText = useCallback(
-    _.debounce(
-      (val: string) => {
-        setIncludeText(val);
-        localStorage.setItem(INCLUDE_STORAGE_KEY, val);
-      },
-    DEBOUNCE_TIME),
+    (val: string) => {
+      setIncludeText(val);
+      localStorage.setItem(INCLUDE_STORAGE_KEY, val);
+    },
     [setIncludeText],
   );
 
   const onChangeExcludeText = useCallback(
-    _.debounce(
-      (val: string) => {
-        setExcludeText(val);
-        localStorage.setItem(EXCLUDE_STORAGE_KEY, val);
-      },
-    DEBOUNCE_TIME),
+    (val: string) => {
+      setExcludeText(val);
+      localStorage.setItem(EXCLUDE_STORAGE_KEY, val);
+    },
     [setExcludeText],
   );
 
