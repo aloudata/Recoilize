@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, {useState, useCallback, useEffect} from 'react';
 import JSONTree from 'react-json-tree';
+import { getSnapshotWithoutFallback } from '../../utils';
 import {useAppSelector} from '../../state-management/hooks';
 
 const INCLUDE_STORAGE_KEY = 'state_tree_include_text';
@@ -13,7 +14,7 @@ const Tree: React.FC = () => {
     state => state.snapshot.snapshotHistory,
   );
   const renderIndex = useAppSelector(state => state.snapshot.renderIndex);
-  const filteredCurSnap = snapshotHistory[renderIndex].filteredSnapshot;
+  const filteredCurSnap = getSnapshotWithoutFallback(snapshotHistory[renderIndex].filteredSnapshot);
 
   const [includeText, setIncludeText] = useState('');
   const [excludeText, setExcludeText] = useState('');
