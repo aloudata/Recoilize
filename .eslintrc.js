@@ -5,9 +5,9 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'prettier',
-    'prettier/flowtype', // if you are using flow
-    'prettier/react',
+    // 'prettier',
+    // 'prettier/flowtype', // if you are using flow
+    // 'prettier/react',
   ],
   parser: 'babel-eslint',
   parserOptions: {
@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins: ['flowtype', 'react', 'jsx-a11y', 'prettier'],
   rules: {
-    'prettier/prettier': ['error'],
+    // 'prettier/prettier': ['error'],
     'react/prop-types': 'off',
   },
   settings: {
