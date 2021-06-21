@@ -55,8 +55,10 @@ export default function RecoilizeDebugger(props) {
   const nodeDeps = {};
   const nodeSubscriptions = {};
 
+
   nodes.forEach(node => {
-    const getDeps = [...snapshot.getDeps_UNSTABLE(node)];
+    const getDeps = [...snapshot.getInfo_UNSTABLE(node).deps];
+    // const getDeps = [...snapshot.getInfo_UNSTABLE().deps];
     nodeDeps[node.key] = getDeps.map(dep => dep.key);
   });
 
@@ -71,8 +73,10 @@ export default function RecoilizeDebugger(props) {
   }
 
   // Traverse all atoms and selector state nodes and get value
-  nodes.forEach((node, index) => {
-    const type = node.__proto__.constructor.name;
+  nodes.forEach((node) => {
+    const nodeInfo = snapshot.getInfo_UNSTABLE(node);
+    const { type, } = nodeInfo;
+    // const type = node.__proto__.constructor.name;
     const contents = snapshot.getLoadable(node).contents;
     // Construct node data structure for dev tool to consume
     filteredSnapshot[node.key] = {

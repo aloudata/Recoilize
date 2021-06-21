@@ -14,7 +14,7 @@
     "test": "jest --verbose",
     "lint": "eslint '**/*.tsx' '**/*.ts' '**/*.js' --ignore-path .gitignore"
   },
-  "author": "Bren Yamaguchi, Saejin Kang, Jonathan Escamilla, Sean Smith, Justin Choo, Anthony Lin, Spenser Schwartz, Steven Nguyen, Henry Taing, Seungho Baek, Taven Shumaker, Aaron Yang, Jesus Vargas, Davide Molino, Janis Hernandez, Jaime Baik, Anthony Magallanes, Edward Shei",
+  "author": "yuanfeng.liu@aloudata.com",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.10.3",
@@ -42,6 +42,7 @@
     "jest": "^26.1.0",
     "jest-webextension-mock": "^3.6.1",
     "prettier": "^2.0.5",
+    "recoil": "^0.3.1",
     "style-loader": "^2.0.0",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.6",

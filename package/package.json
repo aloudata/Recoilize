@@ -1,11 +1,11 @@
 {
-  "name": "recoilize",
-  "version": "1.0.0",
+  "name": "@aloudata/recoilize",
+  "version": "0.0.2",
   "description": "Recoil Dev Tool",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/open-source-labs/Recoilize"
+    "url": "https://github.com/aloudata/Recoilize.git"
   },
   "peerDependencies": {
     "react": "^16.13.1",
@@ -15,7 +15,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Bren Yamaguchi, Saejin Kang, Jonathan Escamilla, Sean Smith, Justin Choo, Anthony Lin, Spenser Schwartz, Steven Nguyen, Henry Taing, Seungho Baek, Taven Shumaker, Aaron Yang, Jesus Vargas, Davide Molino, Janis Hernandez, Jaime Baik, Edward Shei, Anthony Magallanes",
+  "author": "yuanfeng.liu@aloudata.com",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^3.9.6"

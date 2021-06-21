@@ -18,7 +18,7 @@ export default class Graph {
       container,
       width,
       height,
-      maxZoom: 1,
+      maxZoom: 2,
       modes: {
         default: ['zoom-canvas', 'drag-canvas', 'drag-node'],
       },
