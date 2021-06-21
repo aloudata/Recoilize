@@ -30,14 +30,14 @@ export type node = {
   // current node is dependent on this array
   nodeDeps: string[];
   // current node is a dependency for the array of nodes
-  nodeToNodeSubscription: string[];
+  nodeToNodeSubscriptions: string[];
 };
 
 export type nodeDiff = {
   string?: string | string[];
   contents?: any;
   nodeDeps?: string[] | string[][];
-  nodeToNodeSubscription?: string[] | string [][];
+  nodeToNodeSubscriptions?: string[] | string [][];
 }
 
 export type componentAtomTree = {

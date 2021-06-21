@@ -17,6 +17,7 @@ import {
   updateFilter,
   selectFilterState,
 } from '../state-management/slices/FilterSlice';
+import 'antd/dist/antd.dark.min.css';
 
 const LOGO_URL = './assets/Recoilize.png';
 const App: React.FC = () => {
@@ -132,7 +133,7 @@ const App: React.FC = () => {
         Supported only with Recoil apps with the Recoilize NPM module. Follow
         the installation instructions at
         <br />
-        <a target="_blank" href="https://github.com/open-source-labs/Recoilize">
+        <a target="_blank" rel="noreferrer" href="https://github.com/open-source-labs/Recoilize">
           Recoilize
         </a>
       </p>

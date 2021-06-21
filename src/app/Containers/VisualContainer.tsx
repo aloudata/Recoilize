@@ -4,7 +4,7 @@ import NavBar from '../components/NavBar/NavBar';
 import Metrics from '../components/Metrics/MetricsContainer';
 import Tree from '../components/StateTree/Tree';
 import Network from '../components/AtomNetwork/AtomNetwork';
-import AtomComponentVisualContainer from '../components/ComponentGraph/AtomComponentContainer';
+// import AtomComponentVisualContainer from '../components/ComponentGraph/AtomComponentContainer';
 import Settings from '../components/Settings/SettingsContainer';
 
 type navTypes = {
@@ -20,7 +20,7 @@ const VisualContainer: React.FC = () => {
     // render JSON tree of snapshot
     'State Tree': <Tree />,
     // tree visualizer of components showing atom/selector relationships
-    'Component Graph': <AtomComponentVisualContainer />,
+    // 'Component Graph': <AtomComponentVisualContainer />,
 
     // atom and selector subscription relationship
     'Atom Network': <Network />,

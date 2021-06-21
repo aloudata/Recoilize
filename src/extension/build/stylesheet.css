@@ -46,6 +46,7 @@ button:hover {
 #root {
   width: 100%;
   height: 100%;
+  background-color: #212121;
 }
 
 .notFoundContainer {
@@ -235,11 +236,11 @@ button:hover {
   overflow-y: auto;
 }
 
-.Tree .filter-area {
+.filter-area {
   margin: 0 10px;
 }
 
-.Tree .filter-area .input {
+.filter-area .input {
   margin: 0 10px;
   background: #222;
   border: 1px solid #ddd;
@@ -305,366 +306,39 @@ button:hover {
   background-color: #212121;
 }
 
-/* NETWORK COMPONENT */
-.networkContainer {
-  height: 100%;
-  width: 100%;
-}
-
-.Network {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-#networkCanvas {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-#networkSearch {
-  width: 135px;
-  grid-row: 1;
-}
-
-.LegendContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-items: flex-start;
-}
-.AtomNetworkLegend {
-  position: fixed;
-  top: 58px;
-  left: 179px;
-  padding-left: 5px;
-  padding-top: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.AtomDiv {
-  display: grid;
-  grid-row: 2;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 1em;
-}
-
-.SelectorDiv {
-  display: grid;
-  grid-row: 3;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 1em;
-}
-
-.AtomDiv:hover,
-.SelectorDiv:hover,
-.AtomP:hover,
-.SelectorP:hover {
-  opacity: 90% !important;
-  cursor: pointer;
-}
-
-.AtomDiv:active,
-.SelectorDiv:active,
-.AtomP:active,
-.SelectorP:active {
-  opacity: 50% !important;
-}
-
-.AtomLegend {
-  display: inline-block;
-  background-color: #9580ff;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #9580ff;
-  border-radius: 20px;
-  margin: 0px;
-  flex-grow: 1;
-}
-
-.SelectorLegend {
-  display: inline-block;
-  background-color: #ff80bf;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ff80bf;
-  border-radius: 20px;
-  margin: 0px;
-  flex-grow: 1;
-}
-.AtomDropdown,
-.SelectorDropdown {
-  display: grid;
-  grid-row: 4;
-  border: 0.1em solid rgb(43, 34, 34);
-}
-
-.atom-class,
-.selector-class,
-.AtomListItem,
-.SelectorListItem {
-  cursor: pointer;
-}
-
-.SelectorDropdown p:active,
-.AtomDropdown p:active {
-  opacity: 80%;
-}
-
-/* ATOMCOMPONENTVISUAL CONTAINER ->
- * 0) ATOMCOMPONENTVISUAL COMPONENT
- * 1) ATOMSELECTORLEGEND COMPONENT
+/*
+ * ATOM NETWORK
  */
-.Component {
-  height: 100%;
-  width: 100%;
-}
-
-/* ATOMCOMPONENTVISUAL COMPONENT */
-.AtomComponentVisual,
-#canvas {
-  height: 100%;
-  width: 100%;
-}
-.hoverInfo {
-  height: min-content;
-  width: max-content;
-  border: 0;
-  border-radius: 5px;
-  position: fixed;
-  background-color: #484848;
-  font-size: 100%;
-  padding: 0 1%;
-}
-#componentGraph {
-  transform-origin: 25% -25%;
-}
-#fixedButton {
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
-  width: 65px;
-  height: 50px;
-  background: transparent;
-  border: none !important;
-  margin-right: 5px;
-  cursor: pointer;
-}
-
-.RecoilSearch {
-  position: fixed;
-  top: 58px;
-  left: 179px;
-  display: grid;
-  grid-template-columns: 30px 30px;
-  grid-template-rows: 30px 30px 30px 1fr;
-  align-items: center;
-  padding-left: 5px;
-  padding-top: 5px;
-}
-
-.AtomNetworkLegend {
-  position: fixed;
-  top: 58px;
-  left: 179px;
-  display: grid;
-  grid-template-columns: 30px 30px;
-  grid-template-rows: 30px 30px 30px 1fr;
-  align-items: center;
-  padding-left: 5px;
-  padding-top: 5px;
-}
-
-.AtomNetworkLegendWithSearch {
-  position: fixed;
-  top: 100px;
-  left: 179px;
-  display: grid;
-  grid-template-columns: 30px 30px;
-  grid-template-rows: 30px 30px 30px 1fr;
-  align-items: center;
-  padding-left: 5px;
-  padding-top: 5px;
-}
-
-.AtomLegend {
-  display: inline-block;
-  background-color: #9580ff;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #9580ff;
-  border-radius: 20px;
-  margin: 0px;
-}
-
-.SelectorLegend {
-  display: inline-block;
-  background-color: #ff80bf;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ff80bf;
-  border-radius: 20px;
-  margin: 0px;
-}
-
-.bothLegend {
-  display: inline-block;
-  background-color: springgreen;
-  width: 20px;
-  height: 20px;
-  border: 1px solid springgreen;
-  border-radius: 20px;
-  margin: 0px;
-}
-
-#atomDrop,
-#selectorDrop {
-  display: grid;
-  grid-row: 5;
-}
-
-.selectorSelected:hover {
-  color: #ff80bf;
-  background-color: rgb(240, 240, 162);
-  border-color: white;
-  width: 120px;
-  opacity: 100%;
-}
-
-.atomSelected:hover {
-  color: #9580ff;
-  background-color: rgb(240, 240, 162);
-  border-color: white;
-  width: 120px;
-  opacity: 100%;
-}
-
-.atomSelected {
-  color: #9580ff;
-  background-color: rgb(240, 240, 162);
-  border-color: white;
-  width: 120px;
-  opacity: 100%;
-}
-
-.atomNotSelected {
-  color: #9580ff;
-  border-color: white;
-  width: 120px;
-  opacity: 30%;
-}
-
-.atomDropDown {
-  color: #9580ff;
-  border-color: white;
-  width: 120px;
-}
-
-.atomLegendDefault {
-  color: #9580ff;
-  border-color: white;
-  width: 120px;
-}
-
-.selectorSelected {
-  color: #ff80bf;
-  background-color: rgb(240, 240, 162);
-  border-color: white;
-  width: 120px;
-  opacity: 100%;
-}
-
-.selectorNotSelected {
-  color: #ff80bf;
-  border-color: white;
-  width: 120px;
-  opacity: 30%;
-}
-
-.selectorDropDown {
-  color: #ff80bf;
-  border-color: white;
-  width: 120px;
-}
-
-.selectorLegendDefault {
-  color: #ff80bf;
-  border-color: white;
-  width: 120px;
-}
-
-.bothLegendDefault {
-  color: springgreen;
-  border-color: white;
-  width: 120px;
-}
-
-.suspenseLegend {
-  display: inline-block;
-  background: transparent;
-  width: 20px;
-  height: 20px;
-  border: 3px solid red;
-  border-radius: 20px;
-  margin: 0px;
-}
-
-.dropDownButtonDiv {
-  margin: 5px;
-}
-
-.LegendButtons {
+.RecoilNetwork {
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  margin: 5px;
-  margin-top: 60px;
 }
 
-/* ATOMSELECTORLEGEND COMPONENT */
-.AtomSelectorLegend {
-  background-color: rgba(45, 45, 45, 0.65);
-  z-index: 1;
-  position: fixed;
-  right: 0;
-  border: 2px solid #484848;
-  top: 2.5rem;
-  width: 250px;
-  max-height: 400px;
-  overflow-y: auto;
-  text-align: center;
-  margin-right: 5px;
+.RecoilNetwork .filter-area {
+  margin: 10px;
+  flex: 0;
 }
 
-.atomLi,
-.selectorLi {
-  list-style-type: none;
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border: none;
-  word-wrap: break-word;
-  font-size: 14px;
-}
-.atomLi:hover,
-.selectorLi:hover {
-  background-color: #212121;
+.RecoilNetwork .graphArea {
+  width: 100%;
+  flex: 1;
 }
 
-.minimizeButton {
-  margin: 5px;
-  border-radius: 7px;
-  width: 80px;
-  height: 22px;
-  cursor: pointer;
-  font-weight: bold;
+.atom-network-toolbar {
+  display: flex;
+  margin: 0 10px;
+  padding: 10px 0;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
 }
 
-.minimize {
-  display: none;
+.atom-network-toolbar .tool-item {
+  display: flex;
+}
+
+.filter-node-select {
+  min-width: 300px;
 }
 
 /* SETTINGS CONTAINER ->

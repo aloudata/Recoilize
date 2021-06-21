@@ -1,8 +1,9 @@
 import _ from 'lodash';
 import React, {useState, useCallback, useEffect} from 'react';
 import JSONTree from 'react-json-tree';
-import { getSnapshotWithoutFallback } from '../../utils';
+import { filterSnapshotByExcludeKeywords, filterSnapshotByIncludeKeywords, getSnapshotWithoutFallback } from '../../utils';
 import {useAppSelector} from '../../state-management/hooks';
+import { filteredSnapshot } from '../../../types';
 
 const INCLUDE_STORAGE_KEY = 'state_tree_include_text';
 const EXCLUDE_STORAGE_KEY = 'state_tree_exclude_text';
@@ -84,22 +85,18 @@ const Tree: React.FC = () => {
 export default Tree;
 
 /**
- * 根据关键词过滤要展示的snapshot的key
+ * 根据关键词过滤要展示的snapshot
  * @param snapshot
  * @param includeText
  * @param excludeText
  */
-function filterByIncludeAndExclude(snapshot: { [key: string]: any }, includeText: string, excludeText: string) {
-  const res: { [key: string]: any } = {};
-  _.forOwn(snapshot, (val, key) => {
-    const lowCaseKey = key.toLowerCase();
-    if (excludeText && lowCaseKey.indexOf(excludeText.toLowerCase()) !== -1) {
-      return;
-    }
-    if (includeText && lowCaseKey.indexOf(includeText.toLowerCase()) === -1)  {
-      return;
-    }
-    res[key] = val;
-  });
-  return res;
+function filterByIncludeAndExclude(snapshot: filteredSnapshot, includeText: string, excludeText: string) {
+  let newSnapshot: filteredSnapshot = { ...snapshot };
+  if (excludeText) {
+    newSnapshot = filterSnapshotByExcludeKeywords(newSnapshot, [excludeText]);
+  }
+  if (includeText) {
+    newSnapshot = filterSnapshotByIncludeKeywords(newSnapshot, [includeText]);
+  }
+  return newSnapshot;
 }
