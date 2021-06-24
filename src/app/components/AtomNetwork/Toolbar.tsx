@@ -5,8 +5,10 @@ import { getSnapshotWithoutFallback } from '../../utils';
 import { Select, Switch } from 'antd';
 import { useDispatch } from 'react-redux';
 import { setIsShowLabels, setSearchValue } from '../../state-management/slices/AtomNetworkSlice';
+import { useEffect } from 'react';
 
 const Option = Select.Option;
+const IS_SHOW_NODE_LABELS = 'atom_network_is_show_node_labels';
 
 export default function Toolbar() {
   const snapshotHistory = useAppSelector(
@@ -24,9 +26,17 @@ export default function Toolbar() {
     dispatch(setSearchValue(name || ''));
   }, []);
 
+  useEffect(() => {
+    const preIsShowNodeLabels = localStorage.getItem(IS_SHOW_NODE_LABELS);
+    if (preIsShowNodeLabels !== null) {
+      dispatch(setIsShowLabels(preIsShowNodeLabels === 'true'));
+    }
+  }, []);
+
   const isShowLabels = useAppSelector(state => state.atomNetwork.isShowLabels);
   const onChangeIsShowLabels = useCallback((isShow) => {
     dispatch(setIsShowLabels(isShow));
+    localStorage.setItem(IS_SHOW_NODE_LABELS, `${isShow}`);
   }, []);
 
   return (
