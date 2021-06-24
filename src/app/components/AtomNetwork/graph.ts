@@ -6,9 +6,20 @@ export default class Graph {
   debounceRender = this.render;
   graph: G6Graph | null = null;
   currentGraphData: IGraphData = { nodes: [], edges: [] };
+  container: HTMLDivElement;
 
   constructor() {
-    this.debounceRender = _.debounce(this.render, 500);
+    const DELAY_RENDER_TIME = 500;
+    this.debounceRender = _.debounce(this.render, DELAY_RENDER_TIME);
+
+    const DELAY_RESIZE_TIME = 1000;
+    window.onresize = _.debounce(() => {
+      if (!this.graph || !this.container) {
+        return;
+      }
+      const clientSize = this.container.getBoundingClientRect();
+      this.graph.changeSize(clientSize.width, clientSize.height);
+    }, DELAY_RESIZE_TIME);
   }
 
   init(container: HTMLDivElement) {
@@ -35,6 +46,7 @@ export default class Graph {
     graph.on('afterlayout', e => {
       graph.fitView()
     });
+    this.container = container;
     this.graph = graph;
   }
 
